@@ -4,6 +4,10 @@ from slushpool.Account import Account
 
 class Slushpool:
     """ Class Representation of Slushpool API Endpoints """
-    def __init__(self, token):
-        self.account = Account(token)
+    def __init__(self, token=""):
         self.stats = Stats(token)
+
+        if token != "":
+            self.account = Account(token)
+        else:
+            self.account = None
