@@ -58,19 +58,12 @@ class SlushpoolStats:
 
     @property
     def last_block(self):
-        """ Return stats on the most recent block found by the pool.
-
-        The block height is inserted into the returned object since the API returns the block height as the key to the
-        block's stats.
-        """
+        """ Return stats on the most recent block found by the pool. """
 
         block_height_list = sorted(list(self.blocks.keys()))
         last_block_height = block_height_list[-1]
 
-        last_block = self.blocks[last_block_height]
-        last_block['height'] = last_block_height
-
-        return last_block
+        return self.blocks[last_block_height]
 
     def __to_block_objects(self, blocks_obj):
         """ Converts the `blocks` JSON object values to a dictionary with `Block` object values.
@@ -82,14 +75,20 @@ class SlushpoolStats:
         blocks = {}
 
         for block_height in blocks_obj:
-            blocks[block_height] = Block(blocks_obj[block_height])
+            blocks[block_height] = Block(blocks_obj[block_height], block_height)
 
         return blocks
 
 
 class Block:
-    """ Class Representation of an individual Block """
-    def __init__(self, block):
+    """ Class Representation of an individual Block.
+
+    The block height is inserted into the returned object since the API returns the block height as the key to the
+    block's stats. This is primarily for when using `last_block()` method you probably don't have the height and would
+    like to know it.
+    """
+    def __init__(self, block, height):
+        self.height = height
         self.is_mature = block['is_mature']
         self.date_found = block['date_found']
         self.hash = block['hash']
