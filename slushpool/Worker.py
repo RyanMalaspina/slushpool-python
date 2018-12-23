@@ -1,10 +1,3 @@
-class Workers:
-    """ Class Representation of Workers object for a Slushpool Account """
-
-    def __init__(self):
-        self.workers = {}
-
-
 class Worker:
     """ Class Representation for an individual Worker """
     def __init__(self):
