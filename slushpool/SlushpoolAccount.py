@@ -24,6 +24,9 @@ class SlushpoolAccount:
 
         self.update()
 
+    def worker(self, worker_name):
+        return self.workers[self.username + '.' + worker_name]
+
     def update(self):
         """ Update the Account properties from Slushpool """
         r = requests.get(self.url)
