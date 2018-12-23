@@ -40,7 +40,7 @@ class SlushpoolStats:
 
         r_json = r.json()
 
-        self.blocks = r_json['blocks']
+        self.blocks = self.__to_block_objects(r_json['blocks'])
         self.active_workers = r_json['active_workers']
         self.active_stratum = r_json['active_stratum']
         self.round_started = r_json['round_started']
@@ -71,3 +71,32 @@ class SlushpoolStats:
         last_block['height'] = last_block_height
 
         return last_block
+
+    def __to_block_objects(self, blocks_obj):
+        """ Converts the `blocks` JSON object values to a dictionary with `Block` object values.
+
+        This is so block properties can be accessed like properties instead of dictionary attributes
+
+        `stats.blocks["height"].is_mature`  instead of `stats.blocks["height"]["is_mature"]
+        """
+        blocks = {}
+
+        for block_height in blocks_obj:
+            blocks[block_height] = Block(blocks_obj[block_height])
+
+        return blocks
+
+
+class Block:
+    """ Class Representation of an individual Block """
+    def __init__(self, block):
+        self.is_mature = block['is_mature']
+        self.date_found = block['date_found']
+        self.hash = block['hash']
+        self.confirmations = block['confirmations']
+        self.total_shares = block['total_shares']
+        self.total_score = block['total_score']
+        self.reward = block['reward']
+        self.mining_duration = block['mining_duration']
+        self.date_started = block['date_started']
+        self.nmc_reward = block['nmc_reward']
