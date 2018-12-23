@@ -5,3 +5,9 @@
 # Python
 venv
 slushpool/__pycache__
+
+# Building
+slushpool.egg-info
+build
+dist
+
