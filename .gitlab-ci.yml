@@ -9,3 +9,12 @@ stages:
   script:
     - python setup.py install
     - python -m unittest
+
+"Build Dist":
+  stage: build
+  only:
+    - development
+    - master
+  script:
+    - pip install setuptools wheel
+    - python setup.py sdist bdist_wheel
