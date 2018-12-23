@@ -14,3 +14,10 @@ class Slushpool:
             self.account = SlushpoolAccount(token)
         else:
             self.account = None
+
+    def update(self):
+        """ Update stats and account information from Slushpool. """
+        self.stats.update()
+
+        if self.account is not None:
+            self.account.update()
