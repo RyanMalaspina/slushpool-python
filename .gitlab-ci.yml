@@ -1,0 +1,11 @@
+image: python:alpine
+
+stages:
+  - test
+  - build
+
+"Unit Tests":
+  stage: test
+  script:
+    - python setup.py install
+    - python -m unittest
