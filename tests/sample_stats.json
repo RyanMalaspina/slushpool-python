@@ -1,0 +1,54 @@
+{
+  "blocks": {
+    "555105": {
+      "is_mature": 0,
+      "date_found": "2018-12-23 14:02:02",
+      "hash": "00000000000000000021d95c80be5b6db01e466b60ba31677e64059075c77483",
+      "confirmations": 18,
+      "total_shares": 11229835018596,
+      "total_score": 1068921000412.2808,
+      "reward": "0.00000000",
+      "mining_duration": 12518,
+      "date_started": "2018-12-23 10:33:24",
+      "nmc_reward": "0.00000000"
+    },
+    "555122": {
+      "is_mature": 0,
+      "date_found": "2018-12-23 15:55:11",
+      "hash": "00000000000000000022637636a0d77149854867a4b88b3227f1951fbb7dd89a",
+      "confirmations": 1,
+      "total_shares": 4526052444178,
+      "total_score": 1070584578332.0195,
+      "reward": "0.00000000",
+      "mining_duration": 5050,
+      "date_started": "2018-12-23 14:31:01",
+      "nmc_reward": "0.00000000"
+    },
+    "555112": {
+      "is_mature": 0,
+      "date_found": "2018-12-23 14:31:01",
+      "hash": "00000000000000000027fda3e0f1fe7887210e7592d8ed7a9447b38c3f87637a",
+      "confirmations": 11,
+      "total_shares": 1551343675178,
+      "total_score": 1071426554162.083,
+      "reward": "0.00000000",
+      "mining_duration": 1739,
+      "date_started": "2018-12-23 14:02:02",
+      "nmc_reward": "0.00000000"
+    }
+  },
+  "active_workers": 0,
+  "round_started": "2018-12-23 15:55:11",
+  "luck_30": "0.95",
+  "shares_cdf": "31.83",
+  "luck_b50": "0.97",
+  "luck_b10": "0.95",
+  "active_stratum": 0,
+  "ghashes_ps": "3.86819834158e+27",
+  "shares": 1956859056251,
+  "round_duration": "00:36:25",
+  "score": "5.23327126019e+12",
+  "luck_b250": "0.98",
+  "luck_7": "0.87",
+  "luck_1": "0.91"
+}

@@ -1,0 +1,36 @@
+{
+  "username": "Username",
+  "unconfirmed_reward": "1.23456789",
+  "rating": "none",
+  "nmc_send_threshold": "1.23456789",
+  "unconfirmed_nmc_reward": "1.23456789",
+  "estimated_reward": "1.23456789",
+  "hashrate": "123456789",
+  "confirmed_nmc_reward": "1.23456789",
+  "send_threshold": "1.23456789",
+  "confirmed_reward": "1.23456789",
+  "workers": {
+    "Username.Worker1": {
+      "last_share": 123,
+      "score": "12.3",
+      "alive": true,
+      "shares": 123,
+      "hashrate": 123
+    },
+    "Username.Worker2": {
+      "last_share": 456,
+      "score": "45.6",
+      "alive": true,
+      "shares": 456,
+      "hashrate": 456
+    },
+    "Username.Worker3": {
+      "last_share": 789,
+      "score": "78.9",
+      "alive": true,
+      "shares": 789,
+      "hashrate": 789
+    }
+  },
+  "wallet": "hidden"
+}
