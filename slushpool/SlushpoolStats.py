@@ -1,4 +1,4 @@
-import requests
+from . import util
 
 
 class SlushpoolStats:
@@ -33,12 +33,7 @@ class SlushpoolStats:
         self.update()
 
     def update(self):
-        r = requests.get(self.url)
-
-        if r.status_code == 401:
-            raise RuntimeError("Invalid Slushpool token!")
-
-        r_json = r.json()
+        r_json = util.fetch_json(self.url)
 
         self.blocks = self.__to_block_objects(r_json['blocks'])
         self.active_workers = r_json['active_workers']

@@ -1,4 +1,4 @@
-import requests
+from . import util
 
 
 class SlushpoolAccount:
@@ -29,12 +29,8 @@ class SlushpoolAccount:
 
     def update(self):
         """ Update the Account properties from Slushpool """
-        r = requests.get(self.url)
 
-        if r.status_code == 401:
-            raise RuntimeError("Invalid Slushpool token!")
-
-        r_json = r.json()
+        r_json = util.fetch_json(self.url)
 
         self.username = r_json['username']
         self.rating = r_json['rating']
