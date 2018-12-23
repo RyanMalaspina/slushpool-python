@@ -55,3 +55,19 @@ class SlushpoolStats:
         self.luck_b250 = r_json['luck_b250']
         self.luck_7 = r_json['luck_7']
         self.luck_1 = r_json['luck_1']
+
+    @property
+    def last_block(self):
+        """ Return stats on the most recent block found by the pool.
+
+        The block height is inserted into the returned object since the API returns the block height as the key to the
+        block's stats.
+        """
+
+        block_height_list = sorted(list(self.blocks.keys()))
+        last_block_height = block_height_list[-1]
+
+        last_block = self.blocks[last_block_height]
+        last_block['height'] = last_block_height
+
+        return last_block
