@@ -1,7 +1,7 @@
 import requests
 
 
-class Stats:
+class SlushpoolStats:
     """ Class representation of Slushpool Stats """
 
     base_url = "https://slushpool.com/stats/json/"
@@ -12,7 +12,7 @@ class Stats:
         A token is not required for this endpoint, if no token is provided the `reward` and `nmc_reward` properties of
         the `blocks` will return `0.00000000` instead of a specific account's reward.
         """
-        self.url = Stats.base_url + token
+        self.url = SlushpoolStats.base_url + token
 
         self.blocks = {}
         self.active_workers = 0

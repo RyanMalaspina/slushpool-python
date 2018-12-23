@@ -1,13 +1,13 @@
 import requests
 
 
-class Account:
+class SlushpoolAccount:
     """ Class representation of a Slushpool Account """
 
     base_url = "https://slushpool.com/accounts/profile/json/"
 
     def __init__(self, token):
-        self.url = Account.base_url + token
+        self.url = SlushpoolAccount.base_url + token
 
         self.username = ""
         self.rating = ""
