@@ -11,7 +11,8 @@ class TestSlushpoolAccount(TestCase):
     @classmethod
     def setUpClass(cls):
         """ Mock the fetch_json method to return the sample json instead of making an actual request """
-        with open('sample_stats.json') as account:
+        # tests should be ran in project root which is why this path includes `tests/`
+        with open('tests/sample_stats.json') as account:
             util.fetch_json = MagicMock(return_value=json.load(account))
 
     def test_latest_block_method(self):
