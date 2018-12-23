@@ -2,7 +2,7 @@ from . import util
 
 
 class SlushpoolAccount:
-    """ Class representation of a Slushpool Account """
+    """ Class representation of a Slushpool Account. """
 
     base_url = "https://slushpool.com/accounts/profile/json/"
 
@@ -28,7 +28,7 @@ class SlushpoolAccount:
         return self.workers[self.username + '.' + worker_name]
 
     def update(self):
-        """ Update the Account properties from Slushpool """
+        """ Update the Account properties from Slushpool. """
 
         r_json = util.fetch_json(self.url)
 
@@ -61,7 +61,7 @@ class SlushpoolAccount:
 
 
 class Worker:
-    """ Class Representation for an individual Worker """
+    """ Class Representation for an individual Worker. """
     def __init__(self, worker_json_obj):
         self.last_share = worker_json_obj['last_share']
         self.score = worker_json_obj['score']

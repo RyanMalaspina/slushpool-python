@@ -2,12 +2,12 @@ from . import util
 
 
 class SlushpoolStats:
-    """ Class representation of Slushpool Stats """
+    """ Class representation of Slushpool Stats. """
 
     base_url = "https://slushpool.com/stats/json/"
 
     def __init__(self, token=""):
-        """ Initialize Slushpool statistics
+        """ Initialize Slushpool statistics.
 
         A token is not required for this endpoint, if no token is provided the `reward` and `nmc_reward` properties of
         the `blocks` will return `0.00000000` instead of a specific account's reward.
@@ -33,6 +33,7 @@ class SlushpoolStats:
         self.update()
 
     def update(self):
+        """ Update Stats properties from Slushpool. """
         r_json = util.fetch_json(self.url)
 
         self.blocks = self.__to_block_objects(r_json['blocks'])
