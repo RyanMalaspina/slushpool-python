@@ -87,10 +87,10 @@ This makes property access nicer. The height is also added as a property of the 
 ```python
 stats.blocks["554996"].height
 ```
-There is also a method to quickly get information about the last block found by the pool
+There is also a method to quickly get information about the latest block found by the pool
 ```python
 # same as stats.blocks["{highest-height}"].height
-stats.last_block.height   
+stats.latest_block.height   
 ```
 `SlushpoolStats` has it's own update method to refresh information
 ```python
