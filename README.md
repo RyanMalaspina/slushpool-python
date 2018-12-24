@@ -1,6 +1,9 @@
-# slushpool-python
+# slushpool-python [![PyPI version](https://badge.fury.io/py/slushpool.svg)](https://badge.fury.io/py/slushpool)
 A simple API wrapper for Slushpool
 ## Quick Start
+```bash
+$ pip install slushpool
+```
 ```python
 from slushpool import Slushpool
 
