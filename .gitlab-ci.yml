@@ -13,10 +13,6 @@ stages:
 
 "Build Dist":
   stage: build
-  only:
-    - development
-    - release/*
-    - master
   script:
     - pip install setuptools wheel
     - python setup.py sdist bdist_wheel
@@ -32,7 +28,7 @@ stages:
     url: https://test.pypi.org/project/slushpool/
   when: manual
   only:
-    - release/*
+    - /^release\/.*$/
     - tags
   script:
     - pip install twine
