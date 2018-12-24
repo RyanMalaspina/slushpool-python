@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="slushpool",
-    version="1.0.1",
+    version="1.0.2",
     author="Ryan Malaspina",
     author_email="ryan@malaspina.tech",
     description="An API wrapper for Slushpool.com",

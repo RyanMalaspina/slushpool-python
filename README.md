@@ -147,3 +147,9 @@ account.worker("Worker")
 ```python
 account.update()
 ```
+## Running Tests
+In the project root run
+```bash
+$ python -m unittest
+```
+The `unittest` module by default looks for `test*.py` files in a `tests/` directory.
