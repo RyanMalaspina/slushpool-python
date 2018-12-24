@@ -3,6 +3,7 @@ image: python:alpine
 stages:
   - test
   - build
+  - deploy
 
 "Unit Tests":
   stage: test
@@ -18,3 +19,32 @@ stages:
   script:
     - pip install setuptools wheel
     - python setup.py sdist bdist_wheel
+  artifacts:
+    paths:
+      - dist/
+
+"Deploy to TEST PyPI":
+  stage: deploy
+  environment:
+    # Make sure TWINE_USERNAME and TWINE_PASSWORD are set in project config
+    name: TEST-PyPI
+    url: https://test.pypi.org/project/slushpool/
+  when: manual
+  only:
+    - development
+  script:
+    - pip install twine
+    - twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+"Deploy to PyPI":
+  stage: deploy
+  environment:
+    # Make sure TWINE_USERNAME and TWINE_PASSWORD are set in project config
+    name: PyPI
+    url: https://pypi.org/project/slushpool/
+  when: manual
+  only:
+    - tags
+  script:
+    - pip install twine
+    - twine upload --repository-url https://test.pypi.org/legacy/ dist/*
