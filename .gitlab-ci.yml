@@ -14,7 +14,6 @@ stages:
 "Build Dist":
   stage: build
   only:
-    - feature/pypi-cd
     - development
     - master
   script:
@@ -33,6 +32,19 @@ stages:
   when: manual
   only:
     - development
+  script:
+    - pip install twine
+    - twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+"Deploy to PyPI":
+  stage: deploy
+  environment:
+    # Make sure TWINE_USERNAME and TWINE_PASSWORD are set in project config
+    name: PyPI
+    url: https://pypi.org/project/slushpool/
+  when: manual
+  only:
+    - tags
   script:
     - pip install twine
     - twine upload --repository-url https://test.pypi.org/legacy/ dist/*
