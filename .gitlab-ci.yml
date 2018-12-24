@@ -15,6 +15,7 @@ stages:
   stage: build
   only:
     - development
+    - release/*
     - master
   script:
     - pip install setuptools wheel
@@ -31,7 +32,8 @@ stages:
     url: https://test.pypi.org/project/slushpool/
   when: manual
   only:
-    - development
+    - release/*
+    - tags
   script:
     - pip install twine
     - twine upload --repository-url https://test.pypi.org/legacy/ dist/*
@@ -47,4 +49,4 @@ stages:
     - tags
   script:
     - pip install twine
-    - twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+    - twine upload dist/*
